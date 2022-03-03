@@ -1,15 +1,15 @@
 
-var nameWeb = document.getElementById("name-web");
-var urlWeb = document.getElementById("web-url");
-var warningNameSite = document.getElementById("warning-name");
-var warningUrlSite = document.getElementById("warning-url");
+let nameWeb = document.getElementById("name-web");
+let urlWeb = document.getElementById("web-url");
+let warningNameSite = document.getElementById("warning-name");
+let warningUrlSite = document.getElementById("warning-url");
 
-var regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+let regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
 
 warningNameSite.style.display = "none";
 warningUrlSite.style.display = "none";
 
-var container;
+let container;
 if (localStorage.getItem("listWEB") != null) {
     container = JSON.parse(localStorage.getItem("listWEB"));
     displayWeb()
@@ -32,7 +32,7 @@ function addWeb() {
     }
     else {
         if (regex.test(urlWeb.value)== true) {
-            var website = {
+            let website = {
                 web: nameWeb.value,
                 url: urlWeb.value,
             };
@@ -56,8 +56,8 @@ function addWeb() {
 
 // display table
 function displayWeb() {
-    var temp = ``;
-    for (var i = 0; i < container.length; i++) {
+    let temp = ``;
+    for (let i = 0; i < container.length; i++) {
         temp += `<tr>
          <td>${i + 1}</td>
          <td>${container[i].web}</td>
